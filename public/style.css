@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.form-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.98);
+  z-index: 9999;
+}
+.weather-content-title i {
+  margin: 0 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.weather-content-title {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+.form-wrapper .setLocForm {
+  width: fit-content;
+  margin: 20% auto;
+  display: flex;
+}
+.form-wrapper .setLocForm input::placeholder {
+  font-size: 35px;
+}
+.form-wrapper .setLocForm button {
+  height: 100px;
+  width: 100px;
+  text-transform: uppercase;
+}
+.form-wrapper .setLocForm input {
+  width: 1000px;
+  height: 100px;
+  font-size: 35px;
+}
+.wrapper {
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-Weather-Wallpaper.jpg");
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.cancel {
+  color: white;
+  position: absolute;
+  font-size: 30px;
+  padding: 10px;
+  right: 0;
+  cursor: pointer;
+}
+h2 {
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+.weather-wrapper {
+  background-color: hsla(0, 0%, 100%, 0.5);
+  margin: 0 20px;
+  border: 1px solid whitesmoke;
+}
+.weather-wrapper .weather-content {
+  padding: 10px;
+}
+.weather-wrapper .weather-content .weather-card .weather-title {
+  display: flex;
+  align-items: center;
+}
+.degree {
+  font-size: 24px;
+}
+.weather-wrapper .weather-content .weather-card .weather-title .weather-header {
+  display: flex;
+  align-items: baseline;
+}
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-title
+  .weather-header
+  p:last-child {
+  padding-left: 10px;
+}
+.weather-body {
+  text-align: left;
+}
+.loc {
+  display: flex;
+  width: fit-content;
+  margin: 0 auto;
+  color: black;
+  font-size: 24px;
+}
+.weather-wrapper .weather-content .weather-card {
+  color: black;
+  text-align: center;
+  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(6, 250px);
+}
+.weather-wrapper .weather-content .weather-card .weather-title {
+  margin: 10px 0;
+  padding: 45px 0;
+  overflow: hidden;
+}
+.weather-wrapper .weather-content .weather-card .weather-title .weather-body {
+  transform: translateX(200px);
+  transition: all 0.5s;
+}
+.weather-wrapper .weather-content .weather-card .weather-title .weather-header {
+  transform: translate(-20px, 150px);
+  transition: all 0.5s;
+}
+.weather-wrapper .weather-content .weather-card .weather-title .weather-img {
+  transform: translateX(80px);
+  transition: all 0.5s;
+}
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-title:hover
+  .weather-img {
+  transform: translateX(0);
+}
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-title:hover
+  .weather-header {
+  transform: translate(0, 0);
+}
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-title:hover
+  .weather-body {
+  transform: translateX(0);
+}
+.weather-wrapper .weather-content .weather-card .weather-title:hover {
+  border: 1px solid white;
+  box-shadow: 0 8px 6px -6px black;
+}

@@ -1,0 +1,22 @@
+{
+  "name": "weather-test-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/congminhle44/weather-test-app.git"
+  },
+  "author": "congminhle44",
+  "license": "ISC",
+  "homepage": "http://weatherforecastgitdemo.herokuapp.com/",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "yargs": "^15.3.1"
+  }
+}
