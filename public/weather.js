@@ -46,12 +46,11 @@ renderWeather = async (weather) => {
   let mm = d.getMonth() + 1;
   let yy = d.getFullYear();
   let content = "";
-  weather.hourly.map((item, index) => {
+  weather.hourly.slice(0, 12).map((item, index) => {
     let dd = d.getDate() + index;
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
-    if (dd < 32) {
-      content += `
+    content += `
         <div class="weather-status-wrapper">
         <p class="date">${dd} / ${mm} / ${yy}</p>
           <div class="weather-title">
@@ -72,7 +71,6 @@ renderWeather = async (weather) => {
           </div>
         </div>
         `;
-    }
   });
   return (weatherTable.innerHTML = content);
 };
