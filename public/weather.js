@@ -21,7 +21,7 @@ document.getElementById("findLoc").addEventListener("click", () => {
       }
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 });
 
@@ -33,11 +33,10 @@ getWeatherStatus = (lat, lng) => {
   weather
     .getWeather(lat, lng)
     .then((result) => {
-      console.log(result.data);
       renderWeather(result.data);
     })
     .catch((err) => {
-      console.log(err);
+      return err;
     });
 };
 
