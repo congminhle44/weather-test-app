@@ -33,6 +33,7 @@ getWeatherStatus = (lat, lng) => {
   weather
     .getWeather(lat, lng)
     .then((result) => {
+      console.log(result.data);
       renderWeather(result.data);
     })
     .catch((err) => {
@@ -42,28 +43,37 @@ getWeatherStatus = (lat, lng) => {
 
 renderWeather = async (weather) => {
   let weatherTable = document.getElementById("weather");
+  let d = new Date();
+  let mm = d.getMonth() + 1;
+  let yy = d.getFullYear();
   let content = "";
   weather.hourly.map((item, index) => {
+    let dd = d.getDate() + index;
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
-    content += `
-      <div class="weather-title">
-        <div class="weather-img">
-        ${weatherSwitch(item.weather[0].description)}
-        </div>
-        <div class="weather-title-detail">
-          <div class="weather-header">
-            <p class="degree">${parseInt(temp)} &#8451;</p>
-            <p>${item.weather[0].main}</p>
+    if (dd < 32) {
+      content += `
+        <div class="weather-status-wrapper">
+        <p class="date">${dd} / ${mm} / ${yy}</p>
+          <div class="weather-title">
+            <div class="weather-img">
+            ${weatherSwitch(item.weather[0].description)}
+            </div>
+            <div class="weather-title-detail">
+              <div class="weather-header">
+                <p class="degree">${parseInt(temp)} &#8451;</p>
+                <p>${item.weather[0].main}</p>
+              </div>
+              <div class="weather-body">
+                <p>Feels like: ${parseInt(feel)} &#8451;</p>
+                <p>Humidity: ${item.humidity}</p>
+                <p>${item.weather[0].description}</p>
+              </div>
+            </div>
           </div>
-          <div class="weather-body">
-            <p>Feels like: ${parseInt(feel)} &#8451;</p>
-            <p>Humidity: ${item.humidity}</p>
-            <p>${item.weather[0].description}</p>
-          </div>
         </div>
-      </div>
-    `;
+        `;
+    }
   });
   return (weatherTable.innerHTML = content);
 };

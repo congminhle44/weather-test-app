@@ -105,45 +105,64 @@ h2 {
   display: grid;
   grid-template-columns: repeat(6, 250px);
 }
-.weather-wrapper .weather-content .weather-card .weather-title {
+
+.weather-status-wrapper {
   margin: 10px 0;
   padding: 45px 0;
   overflow: hidden;
 }
-.weather-wrapper .weather-content .weather-card .weather-title .weather-body {
+.weather-status-wrapper .date {
+  transition: all 0.5s;
+}
+.weather-status-wrapper:hover .date {
+  transform: translateX(20px);
+}
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-status-wrapper
+  .weather-body {
   transform: translateX(200px);
   transition: all 0.5s;
 }
-.weather-wrapper .weather-content .weather-card .weather-title .weather-header {
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-status-wrapper
+  .weather-header {
   transform: translate(-20px, 150px);
   transition: all 0.5s;
 }
-.weather-wrapper .weather-content .weather-card .weather-title .weather-img {
+.weather-wrapper
+  .weather-content
+  .weather-card
+  .weather-status-wrapper
+  .weather-img {
   transform: translateX(80px);
   transition: all 0.5s;
 }
 .weather-wrapper
   .weather-content
   .weather-card
-  .weather-title:hover
+  .weather-status-wrapper:hover
   .weather-img {
   transform: translateX(0);
 }
 .weather-wrapper
   .weather-content
   .weather-card
-  .weather-title:hover
+  .weather-status-wrapper:hover
   .weather-header {
   transform: translate(0, 0);
 }
 .weather-wrapper
   .weather-content
   .weather-card
-  .weather-title:hover
+  .weather-status-wrapper:hover
   .weather-body {
   transform: translateX(0);
 }
-.weather-wrapper .weather-content .weather-card .weather-title:hover {
+.weather-wrapper .weather-content .weather-card .weather-status-wrapper:hover {
   border: 1px solid white;
   box-shadow: 0 8px 6px -6px black;
 }
