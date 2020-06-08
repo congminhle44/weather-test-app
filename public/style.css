@@ -2,16 +2,29 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-Weather-Wallpaper.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 .form-wrapper {
   width: 100%;
   height: 100%;
   position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   background-color: rgba(0, 0, 0, 0.98);
   z-index: 9999;
 }
 .weather-content-title i {
   margin: 0 20px;
-  font-size: 24px;
+  font-size: 1.6vw;
   cursor: pointer;
 }
 .weather-content-title {
@@ -26,55 +39,62 @@
   display: flex;
 }
 .form-wrapper .setLocForm input::placeholder {
-  font-size: 35px;
+  font-size: 3.5vw;
 }
 .form-wrapper .setLocForm button {
-  height: 100px;
-  width: 100px;
+  height: 14vh;
+  width: fit-content;
+  font-size: 2.5vw;
   text-transform: uppercase;
 }
 .form-wrapper .setLocForm input {
-  width: 1000px;
-  height: 100px;
-  font-size: 35px;
-}
-.wrapper {
-  background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/07/Free-Download-Weather-Wallpaper.jpg");
-  position: relative;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
+  width: 50vw;
+  height: 14vh;
+  font-size: 3vw;
 }
 .cancel {
   color: white;
   position: absolute;
-  font-size: 30px;
+  font-size: 2vw;
   padding: 10px;
   right: 0;
   cursor: pointer;
 }
 h2 {
   padding: 20px 0;
+  font-size: 2vw;
   color: white;
   text-align: center;
   text-transform: uppercase;
 }
 .weather-wrapper {
   background-color: hsla(0, 0%, 100%, 0.5);
-  margin: 0 20px;
+  margin: 2vh 1.5vw;
   border: 1px solid whitesmoke;
 }
 .weather-wrapper .weather-content {
   padding: 10px;
+}
+.weather-wrapper .weather-content .weather-content-card {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.weather-wrapper .weather-content .weather-card {
+  color: black;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 .weather-wrapper .weather-content .weather-card .weather-title {
   display: flex;
   align-items: center;
 }
 .degree {
-  font-size: 24px;
+  font-size: 1.7vw;
 }
 .weather-wrapper .weather-content .weather-card .weather-title .weather-header {
   display: flex;
@@ -91,31 +111,20 @@ h2 {
 .weather-body {
   text-align: left;
 }
-.loc {
-  display: flex;
-  width: fit-content;
-  margin: 0 auto;
-  color: black;
-  font-size: 24px;
-}
-.weather-wrapper .weather-content .weather-card {
-  color: black;
-  text-align: center;
-  width: 300px;
-  display: grid;
-  grid-template-columns: repeat(6, 250px);
-}
 
 .weather-status-wrapper {
-  margin: 10px 0;
-  padding: 45px 0;
+  margin: 1vh 0;
+  padding: 45px 0.7vw;
   overflow: hidden;
 }
 .weather-status-wrapper .date {
+  margin: 0;
+  text-align: left;
+  transform: translateX(-1vw);
   transition: all 0.5s;
 }
 .weather-status-wrapper:hover .date {
-  transform: translateX(20px);
+  transform: translateX(0);
 }
 .weather-wrapper
   .weather-content
@@ -165,4 +174,36 @@ h2 {
 .weather-wrapper .weather-content .weather-card .weather-status-wrapper:hover {
   border: 1px solid white;
   box-shadow: 0 8px 6px -6px black;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 5vw;
+  }
+  .cancel {
+    font-size: 5vw;
+  }
+  .form-wrapper .setLocForm input::placeholder {
+    font-size: 4vw;
+  }
+  .form-wrapper .setLocForm button {
+    height: 14vh;
+    font-size: 5vw;
+  }
+  .form-wrapper .setLocForm input {
+    width: 70vw;
+    height: 14vh;
+    font-size: 5vw;
+  }
+  .weather-content-title {
+    display: block;
+  }
+  .weather-content-title i {
+    font-size: 4vw;
+    text-align: center;
+    width: 100%;
+  }
+  .weather-header .degree {
+    font-size: 5vw;
+  }
 }

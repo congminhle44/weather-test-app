@@ -15,8 +15,6 @@ document.getElementById("findLoc").addEventListener("click", () => {
         document.getElementById("address").innerHTML =
           result.data.results[0].formatted_address;
         let { lat, lng } = result.data.results[0].geometry.location;
-        document.getElementById("lat").innerHTML = " " + lat + " , ";
-        document.getElementById("lng").innerHTML = lng + " ";
         getWeatherStatus(lat, lng);
       }
     })
@@ -52,12 +50,12 @@ renderWeather = async (weather) => {
     let feel = item.feels_like - 273.15;
     content += `
         <div class="weather-status-wrapper">
-        <p class="date">${dd} / ${mm} / ${yy}</p>
           <div class="weather-title">
             <div class="weather-img">
             ${weatherSwitch(item.weather[0].description)}
             </div>
             <div class="weather-title-detail">
+            <p class="date">${dd} / ${mm} / ${yy}</p>
               <div class="weather-header">
                 <p class="degree">${parseInt(temp)} &#8451;</p>
                 <p>${item.weather[0].main}</p>
