@@ -53,11 +53,13 @@ renderWeather = async (weather) => {
             ${weatherSwitch(item.weather[0].description)}
             </div>
             <div class="weather-title-detail">
+            <div class="header-wrapper">
             <p class="date">${h} : 00 ${h > 12 ? "pm" : "am"}</p>
               <div class="weather-header">
                 <p class="degree">${parseInt(temp)} &#8451;</p>
                 <p>${item.weather[0].main}</p>
               </div>
+            </div>
               <div class="weather-body">
                 <p>Feels like: ${parseInt(feel)} &#8451;</p>
                 <p>Humidity: ${item.humidity}</p>

@@ -176,6 +176,39 @@ h2 {
   h2 {
     font-size: 5vw;
   }
+  .weather-status-wrapper {
+    width: 100%;
+  }
+  .weather-title-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .weather-title-detail p {
+    margin: 0;
+  }
+  .weather-wrapper
+    .weather-content
+    .weather-card
+    .weather-status-wrapper
+    .weather-body {
+    transform: translateX(0);
+  }
+  .weather-wrapper
+    .weather-content
+    .weather-card
+    .weather-status-wrapper
+    .weather-header {
+    transform: translate(0);
+  }
+  .weather-wrapper
+    .weather-content
+    .weather-card
+    .weather-status-wrapper
+    .weather-img {
+    transform: translateX(0);
+  }
   .cancel {
     font-size: 5vw;
   }
