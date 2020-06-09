@@ -120,11 +120,7 @@ h2 {
 .weather-status-wrapper .date {
   margin: 0;
   text-align: left;
-  transform: translateX(-1vw);
   transition: all 0.5s;
-}
-.weather-status-wrapper:hover .date {
-  transform: translateX(0);
 }
 .weather-wrapper
   .weather-content

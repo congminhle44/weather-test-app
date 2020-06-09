@@ -40,12 +40,10 @@ getWeatherStatus = (lat, lng) => {
 
 renderWeather = async (weather) => {
   let weatherTable = document.getElementById("weather");
-  let d = new Date();
-  let mm = d.getMonth() + 1;
-  let yy = d.getFullYear();
   let content = "";
   weather.hourly.slice(0, 12).map((item, index) => {
-    let dd = d.getDate() + index;
+    let d = new Date();
+    let h = d.getHours() + index;
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
     content += `
@@ -55,7 +53,7 @@ renderWeather = async (weather) => {
             ${weatherSwitch(item.weather[0].description)}
             </div>
             <div class="weather-title-detail">
-            <p class="date">${dd} / ${mm} / ${yy}</p>
+            <p class="date">${h} : 00 ${h > 12 ? "pm" : "am"}</p>
               <div class="weather-header">
                 <p class="degree">${parseInt(temp)} &#8451;</p>
                 <p>${item.weather[0].main}</p>
