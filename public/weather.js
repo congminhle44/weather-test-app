@@ -46,29 +46,31 @@ renderWeather = async (weather) => {
     let h = d.getHours() + index;
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
-    content += `
-        <div class="weather-status-wrapper">
-          <div class="weather-title">
-            <div class="weather-img">
-            ${weatherSwitch(item.weather[0].description)}
+    if (h <= 24) {
+      content += `
+      <div class="weather-status-wrapper">
+        <div class="weather-title">
+          <div class="weather-img">
+          ${weatherSwitch(item.weather[0].description)}
+          </div>
+          <div class="weather-title-detail">
+          <div class="header-wrapper">
+          <p class="date">${h} : 00 ${h > 12 ? "pm" : "am"}</p>
+            <div class="weather-header">
+              <p class="degree">${parseInt(temp)} &#8451;</p>
+              <p>${item.weather[0].main}</p>
             </div>
-            <div class="weather-title-detail">
-            <div class="header-wrapper">
-            <p class="date">${h} : 00 ${h > 12 ? "pm" : "am"}</p>
-              <div class="weather-header">
-                <p class="degree">${parseInt(temp)} &#8451;</p>
-                <p>${item.weather[0].main}</p>
-              </div>
-            </div>
-              <div class="weather-body">
-                <p>Feels like: ${parseInt(feel)} &#8451;</p>
-                <p>Humidity: ${item.humidity}</p>
-                <p>${item.weather[0].description}</p>
-              </div>
+          </div>
+            <div class="weather-body">
+              <p>Feels like: ${parseInt(feel)} &#8451;</p>
+              <p>Humidity: ${item.humidity}</p>
+              <p>${item.weather[0].description}</p>
             </div>
           </div>
         </div>
-        `;
+      </div>
+      `;
+    }
   });
   return (weatherTable.innerHTML = content);
 };
