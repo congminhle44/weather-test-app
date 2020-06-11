@@ -22,6 +22,59 @@ body {
   background-color: rgba(0, 0, 0, 0.98);
   z-index: 9999;
 }
+.weather-current {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid white;
+  width: 30vw;
+  text-align: center;
+  padding: 5vh 2vw;
+  margin: 5vh auto;
+  box-shadow: 0 8px 6px -6px black;
+}
+.weather-current-content {
+  width: 100%;
+}
+.weather-current-header {
+  width: 50%;
+  margin: 3vh auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h5 {
+  text-align: center;
+}
+.weather-header-content p {
+  text-align: left;
+}
+.weather-current-header .weather-header-content .degree {
+  font-size: 4vw;
+}
+.weather-current-header .weather-header-content .degree .cel {
+  font-size: 2vw;
+}
+.weather-current-header .weather-showoff {
+  width: 40%;
+}
+.weather-current-header .weather-showoff img {
+  width: 100%;
+}
+.weather-current-detail .line1 {
+  width: 70%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.weather-current-detail .line2 {
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
 .weather-content-title i {
   margin: 0 20px;
   font-size: 1.6vw;

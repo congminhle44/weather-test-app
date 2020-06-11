@@ -32,21 +32,58 @@ getWeatherStatus = (lat, lng) => {
     .getWeather(lat, lng)
     .then((result) => {
       renderWeather(result.data);
+      renderCurrent(result.data.current);
     })
     .catch((err) => {
       return err;
     });
 };
-
+renderCurrent = (weatherStatus) => {
+  let d = new Date();
+  let h = d.getHours();
+  let m = d.getMinutes();
+  document.getElementById("current").innerHTML = `
+            <div class="weather-current-content">
+            <h5>Current updated as of ${h}:${m}</h5>
+              <div class="weather-current-header">
+                <div class="weather-showoff">
+                  ${weatherSwitch(weatherStatus.weather[0].description)}
+                </div>
+                <div class="weather-header-content">
+                  <p class="degree">${parseInt(
+                    weatherStatus.temp - 273.15
+                  )} <span class="cel">&#8451;</span></p>
+                  <p class="status">${weatherStatus.weather[0].description}</p>
+                </div>
+              </div>
+              <div class="weather-current-detail">
+                <div class="line1">
+                  <p>Feels like: ${parseInt(
+                    weatherStatus.feels_like - 273.15
+                  )} &#8451;</p>
+                  <p>Wind: ${weatherStatus.wind_speed} km/h</p>
+                  <p>UV: ${parseInt(weatherStatus.uvi)}</p>
+                </div>
+                <div class="line2">
+                  <p>Barometer: ${weatherStatus.pressure} mb</p>
+                  <p>Humidity: ${weatherStatus.humidity}%</p>
+                  <p>Dew Point: ${parseInt(
+                    weatherStatus.dew_point - 273.15
+                  )}&#8451;</p>
+                </div>
+              </div>
+            </div>
+  `;
+};
 renderWeather = async (weather) => {
   let weatherTable = document.getElementById("weather");
   let content = "";
-  weather.hourly.slice(0, 12).map((item, index) => {
+  await weather.hourly.slice(0, 24).map((item, index) => {
     let d = new Date();
-    let h = d.getHours() + index;
+    let h = d.getHours();
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
-    if (h <= 24) {
+    if (index + 1 >= h) {
       content += `
       <div class="weather-status-wrapper">
         <div class="weather-title">
@@ -55,7 +92,8 @@ renderWeather = async (weather) => {
           </div>
           <div class="weather-title-detail">
           <div class="header-wrapper">
-          <p class="date">${h} : 00 ${h > 12 ? "pm" : "am"}</p>
+          <p class="date">${index + 1} : 00
+           ${index > 12 ? "pm" : "am"}</p>
             <div class="weather-header">
               <p class="degree">${parseInt(temp)} &#8451;</p>
               <p>${item.weather[0].main}</p>
@@ -63,7 +101,7 @@ renderWeather = async (weather) => {
           </div>
             <div class="weather-body">
               <p>Feels like: ${parseInt(feel)} &#8451;</p>
-              <p>Humidity: ${item.humidity}</p>
+              <p>Humidity: ${item.humidity}%</p>
               <p>${item.weather[0].description}</p>
             </div>
           </div>
