@@ -232,6 +232,12 @@ h2 {
   .weather-status-wrapper {
     width: 100%;
   }
+  .weather-current-header .weather-header-content .degree {
+    font-size: 8vw;
+  }
+  .weather-current-header .weather-header-content .degree .cel {
+    font-size: 4vw;
+  }
   .weather-title-detail {
     display: flex;
     align-items: center;
