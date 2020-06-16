@@ -31,6 +31,7 @@ getWeatherStatus = (lat, lng) => {
   weather
     .getWeather(lat, lng)
     .then((result) => {
+      console.log(result.data);
       renderWeather(result.data);
       renderCurrent(result.data.current);
     })
@@ -78,13 +79,12 @@ renderCurrent = (weatherStatus) => {
 renderWeather = async (weather) => {
   let weatherTable = document.getElementById("weather");
   let content = "";
-  await weather.hourly.slice(0, 24).map((item, index) => {
+  await weather.hourly.slice(0, 12).map((item, index) => {
     let d = new Date();
     let h = d.getHours();
     let temp = item.temp - 273.15;
     let feel = item.feels_like - 273.15;
-    if (index + 1 >= h) {
-      content += `
+    content += `
       <div class="weather-status-wrapper">
         <div class="weather-title">
           <div class="weather-img">
@@ -92,8 +92,12 @@ renderWeather = async (weather) => {
           </div>
           <div class="weather-title-detail">
           <div class="header-wrapper">
-          <p class="date">${index + 1} : 00
-           ${index > 12 ? "pm" : "am"}</p>
+          <p class="date">${h + index > 24 ? h + index - 24 : h + index} : 00
+           ${
+             h + index >= 12 && h + index !== 24 && h + index - 24 >= 12
+               ? "pm"
+               : "am"
+           }</p>
             <div class="weather-header">
               <p class="degree">${parseInt(temp)} &#8451;</p>
               <p>${item.weather[0].main}</p>
@@ -108,7 +112,6 @@ renderWeather = async (weather) => {
         </div>
       </div>
       `;
-    }
   });
   return (weatherTable.innerHTML = content);
 };
