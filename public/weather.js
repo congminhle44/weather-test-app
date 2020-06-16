@@ -31,7 +31,6 @@ getWeatherStatus = (lat, lng) => {
   weather
     .getWeather(lat, lng)
     .then((result) => {
-      console.log(result.data);
       renderWeather(result.data);
       renderCurrent(result.data.current);
     })

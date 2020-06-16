@@ -50,7 +50,7 @@ h5 {
   text-align: left;
 }
 .weather-current-header .weather-header-content .degree {
-  font-size: 4vw;
+  font-size: 3vw;
 }
 .weather-current-header .weather-header-content .degree .cel {
   font-size: 2vw;
@@ -62,14 +62,18 @@ h5 {
   width: 100%;
 }
 .weather-current-detail .line1 {
-  width: 70%;
+  width: fit-content;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
   align-items: center;
 }
+.weather-current-detail .line1 p,
+.line2 p {
+  margin: 0.2vh 0.5vw;
+}
 .weather-current-detail .line2 {
-  width: 90%;
+  width: fit-content;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
