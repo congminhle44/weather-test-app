@@ -15,7 +15,7 @@
   "homepage": "http://weatherforecastgitdemo.herokuapp.com/",
   "dependencies": {
     "axios": "^0.19.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "request": "^2.88.2",
     "yargs": "^15.3.1"
   }
